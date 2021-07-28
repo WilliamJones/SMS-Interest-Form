@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html>
+<head>
+
+<script>
+
+function doSomething() {
+
+  var dob = document.getElementById("DOB").value;
+  var age = Math.floor((new Date() - new Date(dob).getTime()) / 3.15576e+10);
+
+  // INTERESTS
+  var resortChecked = document.getElementById("resort").checked;
+  var diningChecked = document.getElementById("dining").checked;
+  var gentingRewardsChecked = document.getElementById("gentingRewards").checked;
+  var nightlifeChecked = document.getElementById("nightlife").checked;
+  var entertainmentChecked = document.getElementById("entertainment").checked;
+  var retailChecked = document.getElementById("retail").checked;
+  var experiencesChecked = document.getElementById("experiences").checked;
+
+if (resortChecked || diningChecked || gentingRewardsChecked || nightlifeChecked || entertainmentChecked || retailChecked || experiencesChecked ) {
+  // do nothing is at least one interest is selected.
+} else {
+ alert('Please check at least one interest.');
+ return false;
+}
+
+// perform age gate of Genting Rewards is seleted.
+if (gentingRewardsChecked){
+  if (age > 20) {
+    // alert('21 or over');
+    return true;
+  } else {
+    alert('You must be 21+ to receive marketing communication for Genting Rewards.');
+    return false;
+  }
+}
+
+}//doSomething
+
+</script>
+
+</head>
+<body>
+
+<h1>STAY IN TOUCH</h1>
+
+<form onsubmit="return doSomething();" action="https://www.rwlasvegas.com/">
+  <label>Date of Birth:</label><br>
+  <input type="date" id="DOB" name="DOB" value="" required><br><br>
+
+  <label>Mobile Number:</label><br>
+  <input type="text" id="To" name="To" value="" required><br><br>
+
+<label>I would like to receive the following selected information over SMS communication from Resorts World Las Vegas:</label><br><br>
+
+  <input type="checkbox" id="resort" name="resort" value="Y">
+  <label>Resort</label><br>
+  <input type="checkbox" id="dining" name="dining" value="Y">
+  <label>Dining</label><br>
+  <input type="checkbox" id="gentingRewards" name="gentingRewards" value="Y">
+  <label>Genting Rewards (21+)</label><br>
+  <input type="checkbox" id="nightlife" name="nightlife" value="Y">
+  <label>Nightlife</label><br>
+  <input type="checkbox" id="entertainment" name="entertainment" value="Y">
+  <label>Entertainment</label><br>
+  <input type="checkbox" id="retail" name="retail" value="Y">
+  <label>Retail</label><br>
+  <input type="checkbox" id="experiences" name="experiences" value="Y">
+  <label>Experiences</label><br>
+
+<br><br>
+
+<label>Must be 21+ years of age to receive Genting Rewards alerts.
+Message frequency is 10 messages a month. Message and data rates may apply.  Repy <b>HELP</b> for help or <b>STOP</b> to cancel.</label><br><br>
+
+<input type="checkbox" id="acceptTerms" name="acceptTerms" value="Y" required>
+  <label for="vehicle3">I accept and have read the Resorts World Las Vegas <a href="https://www.rwlasvegas.com/privacy-and-statements/" target="_blank">SMS Terms of Service and Privacy Policy</a></label><br><br>
+
+  <input type="submit" value="SIGN UP">
+</form> 
+
+</body>
+</html>
